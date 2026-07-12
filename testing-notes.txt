@@ -1,0 +1,19 @@
+CS 465 Module Two MVC Routing Test Notes
+Student: Shaban Ghaith
+
+Tested locally after installing dependencies.
+
+Routes verified:
+- http://localhost:3000/ returned HTTP 200 and rendered the home view.
+- http://localhost:3000/travel returned HTTP 200 and rendered the travel view through the MVC route, controller, and Handlebars template.
+
+The /travel page uses:
+- app_server/routes/travel.js
+- app_server/controllers/travel.js
+- app_server/views/travel.hbs
+- app_server/views/partials/header.hbs
+- app_server/views/partials/footer.hbs
+
+AI Use Acknowledgment:
+I used ChatGPT to help build and verify this Module Two MVC routing assignment.
+I reviewed and tested the final application before submission.
