@@ -1,0 +1,131 @@
+body {
+  margin: 0;
+  color: #263238;
+  background: #f5f1e8;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 48px;
+  background: #16324f;
+  color: #ffffff;
+}
+
+.brand p {
+  margin: 4px 0 0;
+  color: #cfe0ef;
+  font-size: 0.92rem;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+nav a {
+  margin-left: 22px;
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.hero,
+.content {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px 28px;
+}
+
+.hero {
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  margin: 0 0 14px;
+  color: #16324f;
+}
+
+.hero p,
+.intro {
+  max-width: 680px;
+  line-height: 1.6;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 16px;
+  padding: 12px 18px;
+  border-radius: 4px;
+  color: #ffffff;
+  background: #0e7c86;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.trip-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.trip-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 22px;
+  align-items: center;
+  padding: 18px;
+  background: #ffffff;
+  border: 1px solid #d7d2c8;
+  border-radius: 6px;
+}
+
+.trip-card img {
+  width: 260px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 4px;
+  background: #d9e8ef;
+}
+
+.trip-card h2 {
+  margin: 0 0 8px;
+  color: #0e5d66;
+}
+
+.trip-card p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+#site-footer {
+  padding: 20px 48px;
+  color: #ffffff;
+  background: #16324f;
+}
+
+@media (max-width: 700px) {
+  #site-header,
+  .trip-card {
+    display: block;
+  }
+
+  nav {
+    margin-top: 12px;
+  }
+
+  nav a {
+    margin: 0 16px 0 0;
+  }
+
+  .trip-card img {
+    width: 100%;
+    height: 190px;
+    margin-bottom: 14px;
+  }
+}
