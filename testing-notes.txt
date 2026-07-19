@@ -1,7 +1,8 @@
-CS 465 Module Two MVC Routing Test Notes
+CS 465 Module Three Static HTML to Templates with JSON Test Notes
 Student: Shaban Ghaith
 
-Tested locally after installing dependencies.
+Tested locally using only `npm start`. The installed `node_modules` folder is
+included in the project so `npm install` is not required for the grader.
 
 Routes verified:
 - http://localhost:3000/ returned HTTP 200 and rendered the home view.
@@ -13,7 +14,15 @@ The /travel page uses:
 - app_server/views/travel.hbs
 - app_server/views/partials/header.hbs
 - app_server/views/partials/footer.hbs
+- data/trips.json
+
+JSON rendering checked:
+- The controller reads data/trips.json with Node's filesystem module.
+- The controller passes the trips collection to the Handlebars view.
+- travel.hbs uses {{#each trips}} to render one trip card per JSON record.
+- Each rendered description includes the trip name, which confirms the page is
+  using JSON data instead of the former static HTML content.
 
 AI Use Acknowledgment:
-I used ChatGPT to help build and verify this Module Two MVC routing assignment.
-I reviewed and tested the final application before submission.
+I used ChatGPT to help build and verify this Module Three assignment. I reviewed
+and tested the final application before submission.

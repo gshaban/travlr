@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Gale Reef",
+    "description": "Gale Reef: Enjoy warm water, kayaking, and relaxed beach time at this bright island destination.",
+    "image": "reef1.jpg",
+    "alt": "Kayaking near a tropical reef"
+  },
+  {
+    "name": "Dawson's Reef",
+    "description": "Dawson's Reef: Visit a calm resort area with scenic ocean views and guided day trips.",
+    "image": "reef2.jpg",
+    "alt": "Travelers walking by an ocean resort"
+  },
+  {
+    "name": "Claire's Reef",
+    "description": "Claire's Reef: Relax beside blue water and plan a quiet vacation with simple package options.",
+    "image": "reef3.jpg",
+    "alt": "Tropical beach and blue water"
+  }
+]
