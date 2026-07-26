@@ -3,16 +3,17 @@
 <main class="content">
   <h1>Travel Packages</h1>
   <p class="intro">
-    These sample getaways are loaded from JSON by the Express controller and
-    rendered through the Handlebars view.
+    These sample getaways are rendered through the Express route, controller,
+    and Handlebars view in the MVC structure.
   </p>
 
   <section class="trip-grid">
     {{#each trips}}
     <article class="trip-card">
-      <img src="/images/{{image}}" alt="{{alt}}">
+      <img src="/images/{{image}}" alt="{{name}}">
       <div>
         <h2>{{name}}</h2>
+        <p class="trip-meta">{{length}} | {{resort}} | {{perPerson}}</p>
         <p>{{description}}</p>
       </div>
     </article>
