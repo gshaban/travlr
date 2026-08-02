@@ -1,24 +1,27 @@
-{{> header }}
-
-<main class="content">
-  <h1>Travel Packages</h1>
-  <p class="intro">
-    These sample getaways are rendered through the Express route, controller,
-    and Handlebars view in the MVC structure.
-  </p>
-
-  <section class="trip-grid">
-    {{#each trips}}
-    <article class="trip-card">
-      <img src="/images/{{image}}" alt="{{name}}">
-      <div>
-        <h2>{{name}}</h2>
-        <p class="trip-meta">{{length}} | {{resort}} | {{perPerson}}</p>
-        <p>{{description}}</p>
+<div id="background">
+  <div id="page">
+    {{> header }}
+    <div id="contents">
+      <div class="box">
+        <div>
+          <div class="body">
+            <h1>Travel</h1>
+            {{#if message}}
+              <p>{{message}}</p>
+            {{/if}}
+            <ul id="sites">
+              {{#each trips}}
+                <li>
+                  <a href="/api/trips/{{code}}"><img src="/images/{{image}}" alt="Img"></a>
+                  <h2><a href="/api/trips/{{code}}">{{name}}</a></h2>
+                  <p>{{description}}</p>
+                </li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
       </div>
-    </article>
-    {{/each}}
-  </section>
-</main>
-
-{{> footer }}
+    </div>
+  </div>
+  {{> footer }}
+</div>

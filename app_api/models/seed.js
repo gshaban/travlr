@@ -3,20 +3,20 @@ const trips = require('../../data/trips.json');
 const Trip = require('./travlr');
 
 const host = process.env.DB_HOST || '127.0.0.1';
-const dbURI = process.env.MONGODB_URI || `mongodb://${host}:27017/travlr`;
+const dbURI = `mongodb://${host}/travlr`;
 
-const seedTrips = async () => {
+const seedDatabase = async () => {
   try {
-    await mongoose.connect(dbURI, { serverSelectionTimeoutMS: 5000 });
+    await mongoose.connect(dbURI);
     await Trip.deleteMany({});
     await Trip.insertMany(trips);
-    console.log(`Seeded ${trips.length} trips into the travlr.trips collection.`);
+    console.log(`Seeded ${trips.length} trips into travlr.trips.`);
   } catch (error) {
-    console.error('Unable to seed trips:', error.message);
+    console.error('Unable to seed database:', error.message);
     process.exitCode = 1;
   } finally {
     await mongoose.connection.close();
   }
 };
 
-seedTrips();
+seedDatabase();
