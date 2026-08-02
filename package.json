@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "prestart": "npm run seed",
     "start": "node ./bin/www",
     "seed": "node ./app_api/models/seed.js"
   },

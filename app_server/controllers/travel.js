@@ -22,7 +22,8 @@ const travel = async (req, res) => {
       res.render('travel', {
         title: 'Travlr Getaways',
         trips: json,
-        message
+        message,
+        travelSelected: true
       });
     })
     .catch(error => res.status(500).send(error.message));
