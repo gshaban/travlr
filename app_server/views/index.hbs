@@ -5,15 +5,13 @@
       <div class="box">
         <div>
           <div class="body">
-            <h1>Home</h1>
+            <h1>{{pageTitle}}</h1>
             <div id="main">
-              <h2>Find your next getaway.</h2>
-              <p>
-                Travlr Getaways helps travelers compare relaxing destinations and plan memorable trips with clear, simple information.
-              </p>
-              <p>
-                <a href="/travel">View travel packages</a>
-              </p>
+              <h2>{{pageHeading}}</h2>
+              <p>{{pageText}}</p>
+              {{#if pageLink}}
+                <p><a href="{{pageLink}}">{{pageLinkText}}</a></p>
+              {{/if}}
             </div>
           </div>
         </div>
