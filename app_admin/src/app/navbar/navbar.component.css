@@ -1,0 +1,13 @@
+.navbar-brand img {
+  max-height: 44px;
+}
+
+.navbar-end {
+  margin-left: auto;
+}
+
+.nav-item {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}

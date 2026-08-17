@@ -1,0 +1,12 @@
+.card-img-top {
+  height: 180px;
+  object-fit: cover;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.is-invalid {
+  border-color: #dc3545;
+}

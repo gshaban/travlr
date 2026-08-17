@@ -1,18 +1,17 @@
-# Travlr Getaways - Module Four NoSQL Databases, Models, and Schemas
+# Travlr Getaways - Module Seven Security
+Shaban Ghaith
 
-Student: Shaban Ghaith
+This Module Seven submission adds authentication and secure administrative API access to the Travlr Getaways full stack application. The project follows the Module Seven Full Stack Guide structure by adding the user schema, Passport local strategy, registration and login endpoints, JWT handling, Angular login form, token storage, and a JWT interceptor.
 
-This Module Four submission adds MongoDB/Mongoose support to the Travlr Getaways Express application. It follows the Full Stack Guide structure by adding the Mongoose database access module, trip schema/model, seed data, and seed script under the expected project folders.
+## Run the Express Backend
 
-## Run
-
-The submitted ZIP includes `node_modules`, so the grader can run the project with only:
+From the root `travlr` folder, run:
 
 ```bash
 npm start
 ```
 
-Then open:
+The submitted project includes the dependencies needed for the grader to run the backend with `npm start`. The backend runs at:
 
 ```text
 http://localhost:3000/
@@ -20,23 +19,61 @@ http://localhost:3000/travel
 http://localhost:3000/api/trips
 ```
 
-## Database and API Files
+The `prestart` script runs the seed script before startup. If `travlr.trips` already contains records, the seed script skips inserting duplicates.
 
-- `app_server/models/db.js`: Connects to MongoDB using Mongoose and includes connection error handling.
-- `app_server/models/travlr.js`: Defines the trip schema and validation rules exactly for the Trips collection.
-- `app_server/models/seed.js`: Populates MongoDB from `data/trips.json` using Mongoose.
-- `data/trips.json`: Contains the required seed trip data.
-- `app_api/controllers/trips.js`: Retrieves trip data in JSON format for `/api/trips`.
-- `app_api/routes/index.js`: Exposes the `/api/trips` endpoint.
+## Run the Angular Admin SPA
 
-## Database Population
-
-The app connects to `mongodb://127.0.0.1:27017/travlr` by default. If the Trips collection is empty when `npm start` runs, the database module seeds the collection from `data/trips.json`. The seed script can also be run manually with:
+Open a second PowerShell window. From the `app_admin` folder, run:
 
 ```bash
-npm run seed
+npm start
+```
+
+This runs Angular's `ng serve` command and opens the admin SPA at:
+
+```text
+http://localhost:4200/
+```
+
+## Security Features Added
+
+- `app_api/models/user.js` stores user name, email, salt, and password hash.
+- `app_api/config/passport.js` configures Passport local authentication.
+- `app_api/controllers/authentication.js` provides `/api/register` and `/api/login`.
+- `app_api/routes/index.js` protects POST, PUT, and DELETE trip endpoints with JWT middleware.
+- `app_admin/src/app/login` adds the admin login form.
+- `app_admin/src/app/services/authentication.service.ts` stores and checks the JWT.
+- `app_admin/src/app/utils/jwt.interceptor.ts` attaches the bearer token to protected API calls.
+- The Angular admin hides Add, Edit, and Delete controls until the user is logged in.
+
+## Postman/API Test Targets
+
+Register a mock admin user:
+
+```text
+POST http://localhost:3000/api/register
+```
+
+Login with the registered user:
+
+```text
+POST http://localhost:3000/api/login
+```
+
+Protected endpoints require:
+
+```text
+Authorization: Bearer <token>
+```
+
+Protected admin endpoints:
+
+```text
+POST http://localhost:3000/api/trips
+PUT http://localhost:3000/api/trips/:tripCode
+DELETE http://localhost:3000/api/trips/:tripCode
 ```
 
 ## AI Use Acknowledgment
 
-I used ChatGPT to help implement, review, and test the Module Four database, schema, API, and seed-data updates. I reviewed the final files and tested the application before submission.
+I used ChatGPT to help review the rubric, implement security, and test the project. I reviewed and tested the final files before submission.

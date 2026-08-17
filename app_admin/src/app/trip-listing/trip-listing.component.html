@@ -1,0 +1,16 @@
+<!-- <pre>{{ trips | json }}</pre> -->
+<div class="row">
+  <div class="col-12 mb-3">
+    <button type="button" class="btn btn-info" *ngIf="isLoggedIn()" (click)="addTrip()">Add Trip</button>
+    <span class="text-muted ms-3">{{ message }}</span>
+  </div>
+</div>
+
+<div class="row">
+  <app-trip-card
+    *ngFor="let trip of trips"
+    [trip]="trip"
+    (tripDeleted)="refreshTrips()"
+    class="card-deck mt-2 col-md-4">
+  </app-trip-card>
+</div>

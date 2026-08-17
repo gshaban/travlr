@@ -1,34 +1,46 @@
-CS 465 Module Four Test Notes
+CS 465 Module Seven Security Test Notes
 Student: Shaban Ghaith
 
 Verification performed before packaging:
 
-1. Validated JavaScript syntax:
+1. Validated backend JavaScript syntax:
    - app.js
-   - app_server/models/db.js
-   - app_server/models/travlr.js
-   - app_server/models/seed.js
-   - app_api/controllers/trips.js
+   - app_api/models/user.js
+   - app_api/controllers/authentication.js
    - app_api/routes/index.js
-   - app_server/controllers/travel.js
 
-2. Validated seed data:
-   - data/trips.json parses successfully as JSON.
-   - The file contains three Travlr trips: Gale Reef, Dawson's Reef, and Claire's Reef.
+2. Built the Angular admin SPA:
+   - Ran npm run build from app_admin.
+   - Angular build completed successfully.
 
-3. Tested database population:
-   - Cleared the local travlr.trips collection.
-   - Started the application with only npm start.
-   - Confirmed the app seeded 3 trips into MongoDB through Mongoose.
+3. Tested Express startup:
+   - Ran npm start from the root travlr folder.
+   - Confirmed the app loaded .env.
+   - Confirmed MongoDB connected at mongodb://127.0.0.1/travlr.
+   - Confirmed seed script skipped duplicate trip records safely.
 
-4. Tested required routes:
-   - http://localhost:3000/ returned HTTP 200.
-   - http://localhost:3000/travel returned HTTP 200 and rendered trip data/images.
-   - http://localhost:3000/api/trips returned HTTP 200 and returned 3 trip records in JSON format.
+4. Tested authentication API endpoints:
+   - POST http://localhost:3000/api/register returned a JWT.
+   - POST http://localhost:3000/api/login returned a JWT.
 
-5. Confirmed dependency handling:
-   - Mongoose is listed in package.json.
-   - node_modules is included so the grader can run npm start without npm install.
+5. Tested protected API behavior:
+   - PUT http://localhost:3000/api/trips/BAHA260810 without token returned HTTP 401.
+   - PUT http://localhost:3000/api/trips/BAHA260810 with invalid token returned HTTP 401.
+   - PUT http://localhost:3000/api/trips/BAHA260810 with valid token succeeded.
+   - POST http://localhost:3000/api/trips with valid token succeeded.
+   - DELETE http://localhost:3000/api/trips/:tripCode without token returned HTTP 401.
+   - DELETE http://localhost:3000/api/trips/:tripCode with valid token succeeded.
+
+6. Tested Angular front end:
+   - Opened http://localhost:4200 while logged out.
+   - Confirmed trip cards display and only Log In is visible.
+   - Confirmed Add Trip, Edit Trip, and Delete are hidden while logged out.
+   - Logged in through the Angular login form using the registered mock user.
+   - Confirmed Log Out appears after login.
+   - Confirmed Add Trip, Edit Trip, and Delete appear after login.
+   - Opened Edit Trip and saved through the Angular UI.
+   - Confirmed the protected Angular save returned to the trip listing successfully.
+   - Logged out and confirmed admin CRUD buttons disappeared again.
 
 AI Use Acknowledgment:
-I used ChatGPT to help implement, review, and test the Module Four database, schema, API, and seed-data updates. I reviewed the final files and tested the application before submission.
+I used ChatGPT to help review the rubric, implement security, and test the project. I reviewed and tested the final files before submission.
