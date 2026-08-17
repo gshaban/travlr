@@ -21,6 +21,7 @@ const travel = async (req, res) => {
 
       res.render('travel', {
         title: 'Travlr Getaways',
+        activeTravel: true,
         trips: json,
         message
       });

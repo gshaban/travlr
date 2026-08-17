@@ -19,6 +19,8 @@ Verification performed before final project packaging:
    - Confirmed MongoDB connected at mongodb://127.0.0.1/travlr.
    - Confirmed seed script skipped duplicate trip records safely.
    - Confirmed the seed script creates or preserves the mock admin user.
+   - Confirmed public routes for /, /travel, /rooms, /meals, /news, /about, and /contact return HTTP 200.
+   - Confirmed public navigation highlights the current page and no longer hard-codes Travel as selected.
 
 4. Tested authentication API endpoints:
    - POST http://localhost:3000/api/register returned a JWT.

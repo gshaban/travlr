@@ -48,6 +48,7 @@ http://localhost:4200/
 
 - Public Express website with MVC routes, controllers, views, and assets.
 - Handlebars templates render MongoDB trip data dynamically.
+- Public navigation routes include Home, Travel, Rooms, Meals, News, About, and Contact using the Travlr template layout.
 - Mongoose models and schemas store trip and user records in MongoDB.
 - REST API supports list, detail, add, update, and delete trip operations.
 - Angular administrator SPA supports viewing, adding, editing, and deleting trips.

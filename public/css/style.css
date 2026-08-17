@@ -143,6 +143,9 @@ img {
 	min-height: 980px;
 	padding: 30px 40px 0;
 }
+#contents div.body.compact {
+	min-height: 220px;
+}
 /** Adbox **/
 #adbox {
 	background: url(../images/bg-adbox.png) no-repeat left top;
