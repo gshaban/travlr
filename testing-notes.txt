@@ -1,7 +1,7 @@
-CS 465 Module Seven Security Test Notes
+CS 465 Final Project Test Notes
 Student: Shaban Ghaith
 
-Verification performed before packaging:
+Verification performed before final project packaging:
 
 1. Validated backend JavaScript syntax:
    - app.js
@@ -18,6 +18,7 @@ Verification performed before packaging:
    - Confirmed the app loaded .env.
    - Confirmed MongoDB connected at mongodb://127.0.0.1/travlr.
    - Confirmed seed script skipped duplicate trip records safely.
+   - Confirmed the seed script creates or preserves the mock admin user.
 
 4. Tested authentication API endpoints:
    - POST http://localhost:3000/api/register returned a JWT.

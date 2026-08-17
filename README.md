@@ -1,7 +1,9 @@
-# Travlr Getaways - Module Seven Security
+# Travlr Getaways - Final Full Stack Project
 Shaban Ghaith
 
-This Module Seven submission adds authentication and secure administrative API access to the Travlr Getaways full stack application. The project follows the Module Seven Full Stack Guide structure by adding the user schema, Passport local strategy, registration and login endpoints, JWT handling, Angular login form, token storage, and a JWT interceptor.
+This final project submission includes the completed Travlr Getaways full stack application. The project uses the MEAN stack: MongoDB for persistent trip and user data, Express and Node.js for the public website and REST API, and Angular for the administrator single-page application.
+
+The public customer-facing website uses Express MVC routing, controllers, Handlebars templates, shared partials, and MongoDB-backed trip data. The administrator SPA uses Angular components, services, models, routes, JWT storage, and a JWT interceptor so an admin can log in and manage trip packages through secure endpoints.
 
 ## Run the Express Backend
 
@@ -21,6 +23,13 @@ http://localhost:3000/api/trips
 
 The `prestart` script runs the seed script before startup. If `travlr.trips` already contains records, the seed script skips inserting duplicates.
 
+The seed script also creates a mock admin login if it does not already exist:
+
+```text
+Email: shaban.ghaith@snhu.edu
+Password: shaban@123
+```
+
 ## Run the Angular Admin SPA
 
 Open a second PowerShell window. From the `app_admin` folder, run:
@@ -35,16 +44,15 @@ This runs Angular's `ng serve` command and opens the admin SPA at:
 http://localhost:4200/
 ```
 
-## Security Features Added
+## Final Project Features
 
-- `app_api/models/user.js` stores user name, email, salt, and password hash.
-- `app_api/config/passport.js` configures Passport local authentication.
-- `app_api/controllers/authentication.js` provides `/api/register` and `/api/login`.
-- `app_api/routes/index.js` protects POST, PUT, and DELETE trip endpoints with JWT middleware.
-- `app_admin/src/app/login` adds the admin login form.
-- `app_admin/src/app/services/authentication.service.ts` stores and checks the JWT.
-- `app_admin/src/app/utils/jwt.interceptor.ts` attaches the bearer token to protected API calls.
-- The Angular admin hides Add, Edit, and Delete controls until the user is logged in.
+- Public Express website with MVC routes, controllers, views, and assets.
+- Handlebars templates render MongoDB trip data dynamically.
+- Mongoose models and schemas store trip and user records in MongoDB.
+- REST API supports list, detail, add, update, and delete trip operations.
+- Angular administrator SPA supports viewing, adding, editing, and deleting trips.
+- Login authentication uses Passport, hashed passwords, JWTs, and secure admin endpoints.
+- Angular hides Add, Edit, and Delete controls until the user logs in.
 
 ## Postman/API Test Targets
 
